@@ -1,0 +1,27 @@
+{
+  "name": "e-commerce-website-project",
+  "version": "1.0.0",
+  "description": "e-commerce_sit",
+  "main": "Mern e-commerce-site",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bharat-bhardhwaj/e-commerce.git"
+  },
+  "keywords": [
+    "mern",
+    "project",
+    "commerce"
+  ],
+  "author": "bharat bhardhwaj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bharat-bhardhwaj/e-commerce/issues"
+  },
+  "homepage": "https://github.com/bharat-bhardhwaj/e-commerce#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
