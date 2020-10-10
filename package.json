@@ -2,7 +2,8 @@
   "name": "e-commerce-website-project",
   "version": "1.0.0",
   "description": "e-commerce_sit",
-  "main": "Mern e-commerce-site",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
