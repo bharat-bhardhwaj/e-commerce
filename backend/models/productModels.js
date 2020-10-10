@@ -14,6 +14,10 @@ const productSchema =mongoose.Schema({
         required:true,
         ref:'User'
     },
+    name:{
+        type:String,
+        required:true
+    },
     image:{
         type:String,
         required:true,
@@ -43,6 +47,11 @@ const productSchema =mongoose.Schema({
         default:0
     },
     price:{
+        type:Number,
+        required:true,
+        default:0
+    },
+    countInStock:{
         type:Number,
         required:true,
         default:0
