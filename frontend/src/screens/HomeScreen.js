@@ -20,7 +20,7 @@ const HomeScreen = () => {
     <>
       <h1>latest Products</h1>
       {loading ? (
-        <loading/>
+        <Loader/>
       ) : error ? (
       <Message variant='danger'>{error}</Message>
       ) : (
