@@ -1,6 +1,6 @@
 import React from 'react'
-import {LinkContainer} from 'react-router-bootstrap'
-import { Navbar, Nav, Container} from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+import { Navbar, Nav, Container } from 'react-bootstrap'
 
 const Header = () => {
   return (
@@ -8,20 +8,23 @@ const Header = () => {
       <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-          <Navbar.Brand>Broshop</Navbar.Brand>
+            <Navbar.Brand>Broshop</Navbar.Brand>
           </LinkContainer>
-          
+
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ml-auto'>
-            <LinkContainer to='/cart'>
-            <Nav.Link > <i className='fas fa-shopping-cart'></i>Home</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to='/signin'>
-            <Nav.Link ><i className='fas fa-user'></i>Sign</Nav.Link>
-          </LinkContainer>
-            
-              
+              <LinkContainer to='/cart'>
+                <Nav.Link>
+                  {' '}
+                  <i className='fas fa-shopping-cart'></i> CART
+                </Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/signin'>
+                <Nav.Link>
+                  <i className='fas fa-user'></i> Sign in
+                </Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>
