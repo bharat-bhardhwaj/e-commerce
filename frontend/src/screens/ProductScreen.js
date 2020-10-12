@@ -1,6 +1,6 @@
 import React, { Fragment ,useState,useEffect} from 'react'
 import {useDispatch,useSelector} from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link,useHistory } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import {listProductsDetails} from '../actions/productActions'
@@ -9,6 +9,8 @@ import Message from '../components/Message'
 
 
 const ProductScreen = ({ match }) => {
+
+  const history=useHistory()
 
   const [qty,setQty]=useState(0);
   
@@ -20,6 +22,11 @@ const ProductScreen = ({ match }) => {
   useEffect(()=>{
     dispatch(listProductsDetails(match.params.id))
 },[dispatch,match])
+
+
+const addToCartHandler =() =>{
+  history.push(`/cart/${match.params.id}?qty=${qty}`)
+}
 
 
   return (
@@ -105,6 +112,7 @@ const ProductScreen = ({ match }) => {
             )}
            <ListGroup.Item>
              <Button
+                onClick={addToCartHandler}
                className='btn-block'
                type='Button'
                disabled={product.countInStock === 0}
