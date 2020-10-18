@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, {useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Row, Col, Image, Card, ListGroup } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -26,7 +26,7 @@ const OrderScreen = ({ match }) => {
   useEffect(() => {
     if(!order || order._id !== orderId)
     dispatch(getOrderDetails(orderId))
-  }, [])
+  }, [dispatch,orderId,order])
 
   return loading ? (
     <Loader />
