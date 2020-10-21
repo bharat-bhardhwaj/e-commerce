@@ -4,8 +4,9 @@ import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { listProductsDetails} from '../actions/productActions'
+import { listProductsDetails,updateProduct} from '../actions/productActions'
 import FormContainer from '../components/FormContainer'
+import { PRODUCT_UPDATE_RESET } from '../constants/productConstant'
 
 const ProductEditScreen = ({ match, history }) => {
   const productId = match.params.id
@@ -25,10 +26,21 @@ const ProductEditScreen = ({ match, history }) => {
 
   const { loading, error, product } = productDetails
 
+
+
+  const productUpdate = useSelector((state) => state.productUpdate)
+
+  const { loading:loadingUpdate, error:errorUpdate, success:successUpdate } = productUpdate
+
   
 
   useEffect(() => {
- 
+
+    if(successUpdate){
+        dispatch({type:PRODUCT_UPDATE_RESET});
+        history.push('/admin/productlist')
+    }else{
+
    
         if (!product) {
             console.log('yeah it is there')
@@ -46,13 +58,25 @@ const ProductEditScreen = ({ match, history }) => {
               setDescription(product.description)
             }
           }
+    }
+ 
    
    
-  }, [dispatch, history, productId,product])
+  }, [dispatch, history, productId,product,successUpdate])
 
   const submitHandler = (e) => {
     e.preventDefault()
     //update product
+    dispatch(updateProduct({
+        _id:productId,
+        name,
+        price,
+        image,
+        brand,
+        category,
+        description,
+        countInStock,
+    }))
   }
   return (
     <>
@@ -61,7 +85,8 @@ const ProductEditScreen = ({ match, history }) => {
       </Link>
       <FormContainer>
         <h1>Edit product</h1>
-       
+       {loadingUpdate && <Loader/>}
+       {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
         {loading ? (
           <Loader />
         ) : error ? (
