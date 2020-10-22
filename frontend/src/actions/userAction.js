@@ -273,6 +273,13 @@ export const Updateuser= (user) => async (dispatch, getState) => {
       payload:data
    
     })
+     dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload:data
+   
+    })
+
+    localStorage.setItem('userinfo',JSON.stringify(data))
   } catch (error) {
     dispatch({
       type: USER_UPDATE_FAIL,

@@ -74,7 +74,7 @@ const UserListScreen = ({history}) => {
                                 <i className='fas fa-trash'></i>
                             </Button>
                         </td>
-                        <td>{user._id}</td>
+                        
                     </tr>
                 ))}
             </tbody>
